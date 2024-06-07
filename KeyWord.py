@@ -1,5 +1,6 @@
 import azure.cognitiveservices.speech as speechsdk
 import time
+import threading
 from Main import main
 
 # Azure订阅密钥和服务区域
@@ -23,10 +24,21 @@ def recognized_cb(evt):
     # 关键词识别回调函数
     if evt.result.reason == speechsdk.ResultReason.RecognizedKeyword:
         print("RECOGNIZED KEYWORD: {}".format(evt.result.text))
+
         # 停止关键词识别
         speech_recognizer.stop_keyword_recognition()
 
-        main()  # 调用 main 函数
+        # 创建并启动线程执行 main 函数
+        thread = threading.Thread(target=execute_main)
+        thread.start()
+
+def execute_main():
+    # 执行 main 函数，并在完成后重新启动关键词识别
+    main()
+    time.sleep(2)
+    speech_recognizer.start_keyword_recognition(model)
+    print('Listening for keyword "{}"...'.format(keyword))
+
 
 # 连接回调函数
 speech_recognizer.recognized.connect(recognized_cb)
@@ -35,10 +47,9 @@ speech_recognizer.recognized.connect(recognized_cb)
 speech_recognizer.start_keyword_recognition(model)
 print('Listening for keyword "{}"...'.format(keyword))
 
-# 等待直到检测到关键词或者用户决定停止程序
 try:
     while True:
-        time.sleep(0.5)
+        time.sleep(0.8)  # 使用 time.sleep 来避免 CPU 过载
 except KeyboardInterrupt:
     print("Stopping keyword recognition.")
     speech_recognizer.stop_keyword_recognition()
