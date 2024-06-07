@@ -3,7 +3,7 @@
 ## 环境配置
 - 以下两种方式均可
 1. 将 `env` 文件夹放到 `anaconda/envs/` 中，可以直接激活使用。
-2. 可以使用 `pip install -r requirements.txt` 进行手动下载，确保 Python 版本为 `3.9.11`。
+2. 可以使用 `pip install -r requirements.txt` 进行手动下载， 建议 Python 版本为 `3.9.11`。
 
 # 运行说明
 
