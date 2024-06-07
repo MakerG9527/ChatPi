@@ -1,0 +1,1 @@
+Think中的capture_and_generate_image()会将扩散模型生成的图片保存到这里

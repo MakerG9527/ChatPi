@@ -1,0 +1,1 @@
+OCR中的recognize_text_from_image()会将从图片中提取到的文字保存到这里
