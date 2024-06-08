@@ -1,7 +1,8 @@
 from openai import OpenAI
 
-kimi_key = "sk-1WngzVlKjJ6ItzrKGQoHPTxWDTXB1arNtrpBnzvVvJtovtCf"
-kimi_url = "https://api.moonshot.cn/v1"
+# 获取Kimi的API https://platform.moonshot.cn/docs/intro
+kimi_key = "替换成自己的即可"
+kimi_url = "替换成自己的即可"
 
 def initialize_client(key = kimi_key, url = kimi_url):
     # 请替换成您自己的 API 密钥和 base_url
