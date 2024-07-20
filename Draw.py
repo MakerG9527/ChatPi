@@ -41,7 +41,7 @@ def draw(prompt):
         response = requests.get(image_url)
         if response.status_code == 200:
             # 使用当前时间作为文件名
-            file_name = os.path.join(pictures_folder, f"image_{timestamp}.png")
+            file_name = os.path.join(pictures_folder, f"{timestamp}.png")
             with open(file_name, 'wb') as f:
                 f.write(response.content)
             print(f"Pictures saved to: {file_name}")
