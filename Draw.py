@@ -22,7 +22,7 @@ def draw(prompt):
     result = client.images.generate(
         model="Dalle3",
         prompt=prompt,
-        n=3 #绘制的数量
+        n=1 #绘制的数量
     )
 
     # 假设API返回的是JSON格式的数据
