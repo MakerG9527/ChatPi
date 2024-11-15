@@ -10,7 +10,7 @@
 ## Python 程序使用说明
 
 ### 关键词识别
-脚本默认的关键词为 `hey berry`。运行`Keyword.py` 当识别到这个关键词后，将执行 `Main.py`。
+脚本默认的关键词为 `hey berry`。运行`KeyWord.py` 当识别到这个关键词后，将执行 `Main.py`。
 ### 不使用关键词
 可以直接运行`Main.py`,直接进行对话。
 
